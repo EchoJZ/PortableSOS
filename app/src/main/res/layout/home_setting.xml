@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".thirdfragmentactivity.home_setting"
+    android:orientation="vertical"
+    android:background="#f6f7f9">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/home_setting_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="24dp"
+        android:background="#f6f7f9"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <ImageView
+            android:id="@+id/home_setting_return"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/title_turn_left"/>
+        <TextView
+            style="@style/MyTitle"
+            android:text="设置"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        style="@style/CodeFont"
+        android:text=" 账号与安全"
+        android:drawableRight="@drawable/turn_to_next"/>
+
+    <TextView
+        style="@style/CodeFont"
+        android:layout_marginTop="20dp"
+        android:text=" 消息通知"
+        android:drawableRight="@drawable/turn_to_next"/>
+    <TextView
+        style="@style/CodeFont"
+        android:text=" 隐私"
+        android:drawableRight="@drawable/turn_to_next"/>
+    <TextView
+        style="@style/CodeFont"
+        android:text=" 通用"
+        android:drawableRight="@drawable/turn_to_next"/>
+
+    <TextView
+        style="@style/CodeFont"
+        android:layout_marginTop="20dp"
+        android:text=" 关于掌心SOS与帮助"
+        android:drawableRight="@drawable/turn_to_next"/>
+
+    <TextView
+        android:id="@+id/home_setting_exit"
+        style="@style/CodeFont"
+        android:layout_marginTop="20dp"
+        android:text=" 退出掌心SOS(xml)"/>
+</LinearLayout>
+
+
+
+

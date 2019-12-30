@@ -1,0 +1,60 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="CodeFont" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:textColor">#2E2E2E</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">#FFFFFF</item>
+    </style>
+
+    <style name="MyTitle" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:textColor">#2E2E2E</item>
+        <item name="android:textSize">23sp</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">#f6f7f9</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="DetailsTopText" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#BE2E2E2E</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:layout_marginLeft">15dp</item>
+    </style>
+    <style name="DetailsBottomText" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:layout_marginLeft">15dp</item>
+    </style>
+
+    <style name="DetailsName" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>

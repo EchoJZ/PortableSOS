@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/home_details_head"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:src="@drawable/head"
+            android:scaleType="fitXY"
+            />
+
+        <ImageView
+            android:id="@+id/home_details_pic"
+            android:layout_width="match_parent"
+            android:layout_height="530dp"
+            android:layout_marginTop="200dp"
+            android:src="@drawable/background5"
+            android:scaleType="fitXY"
+        />
+
+        <ImageView
+            android:id="@+id/home_details_return"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/white_title_turn_left"/>
+        <TextView
+            android:layout_marginLeft="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:textSize="23dp"
+            android:textColor="#FFFFFF"
+            android:text="返回"/>
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:textSize="23dp"
+            android:layout_marginRight="15dp"
+            android:textColor="#FFFFFF"
+            android:text="更换头像"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="250dp">
+
+            <TextView
+                android:id="@+id/home_details_user_name1"
+                style="@style/DetailsName"
+                android:text="Bias"/>
+
+            <TextView
+                android:layout_marginTop="30dp"
+                style="@style/DetailsTopText"
+                android:text="邮箱📮"/>
+            <EditText
+                android:id="@+id/home_details_phone"
+                style="@style/DetailsBottomText"
+                android:text="15977711229"/>
+            <TextView
+                android:layout_marginTop="8dp"
+                style="@style/DetailsTopText"
+                android:text="用户名👥"/>
+            <EditText
+                android:id="@+id/home_details_user_name2"
+                style="@style/DetailsBottomText"
+                android:text="Bias"/>
+            <TextView
+                android:layout_marginTop="8dp"
+                style="@style/DetailsTopText"
+                android:text="密码🔑"/>
+
+            <EditText
+                android:id="@+id/home_details_user_password"
+                style="@style/DetailsBottomText"
+                android:text="123456" />
+            <TextView
+                android:layout_marginTop="8dp"
+                style="@style/DetailsTopText"
+                android:text="个人介绍📚"/>
+            <EditText
+                android:id="@+id/home_details_user_intro"
+                style="@style/DetailsBottomText"
+                android:text="又是新的一天！"/>
+
+            <TextView
+                android:layout_marginTop="8dp"
+                style="@style/DetailsTopText"
+                android:text="地理位置🚩"/>
+            <TextView
+                android:id="@+id/home_details_location"
+                style="@style/DetailsBottomText"
+                android:text="湖北武汉"/>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_height="0.5dp"
+                android:background="#405F5454" />
+
+            <TextView
+                android:layout_marginTop="8dp"
+                style="@style/DetailsTopText"
+                android:text="最后更新时间⌚️"/>
+            <TextView
+                android:id="@+id/home_details_update_time"
+                style="@style/DetailsBottomText"
+                android:text="2018-4-1"/>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_height="0.5dp"
+                android:background="#405F5454" />
+
+            <TextView
+                android:layout_marginTop="8dp"
+                style="@style/DetailsTopText"
+                android:text="安全状态"/>
+            <TextView
+                android:id="@+id/home_details_security_status"
+                style="@style/DetailsBottomText"
+                android:text="安全"/>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_height="0.5dp"
+                android:background="#405F5454" />
+
+
+            <Button
+                android:id="@+id/home_details_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:background="#2196F3"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_horizontal"
+                android:text="保存修改"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".thirdfragmentactivity.home_site">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/home_site_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="24dp"
+        android:background="#f6f7f9"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <ImageView
+            android:id="@+id/home_site_return"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/title_turn_left"/>
+        <TextView
+            style="@style/MyTitle"
+            android:text="我的位置"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="您的当前位置为"/>
+
+    <TextView
+        android:id="@+id/home_now_site"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="湖北武汉（xml)"
+        android:textSize="25dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="地理位置不准确？反馈"
+        android:layout_marginTop="300dp"
+        android:textColor="#2196F3"/>
+</LinearLayout>

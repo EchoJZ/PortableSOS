@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".begin.begin_welcome"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/home_details_head"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:src="@drawable/begin_welcome"
+        android:scaleType="fitXY"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:text="欢迎使用掌心SOS"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#B2000000"
+            android:text="随时随地,保护您的安全"/>
+        <View
+            android:layout_width="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:background="#8A000000" />
+        <Button
+            android:id="@+id/begin_welcome_login"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:text="登录"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:background="#D25CE7"/>
+        
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/begin_welcom_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="15dp"
+            android:text="新用户注册(xml)"
+            android:textColor="#ce77eb"/>
+        <TextView
+            android:id="@+id/begin_welcom_know"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="15dp"
+            android:text="了解掌心SOS(xml)"
+            android:textColor="#ce77eb"/>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

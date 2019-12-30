@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/h_back"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:src="@drawable/background4"
+            android:scaleType="fitXY"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/protect_usemethod"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/protect_usemethod"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="8"
+                android:gravity="center_horizontal"
+                android:text="保护"
+                android:textSize="25sp"
+                android:textColor="#FFFFFF"/>
+
+            <ImageView
+                android:id="@+id/home_setting"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/protect_help"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:layout_marginTop="78dp">
+
+            <RelativeLayout
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:background="#BEF44336"
+                android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="防狼声爆"
+                    android:gravity="center"
+                    android:textColor="#FFFFFF" />
+                <ImageButton
+                    android:id="@+id/play1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="60dp"
+                    android:src="@drawable/play1"
+                    />
+
+                <ImageButton
+                    android:id="@+id/pause1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="60dp"
+                    android:src="@drawable/pause2" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:background="#B09C27B0"
+                android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="威胁声"
+                    android:gravity="center"
+                    android:textColor="#FFFFFF" />
+
+                <ImageButton
+                    android:id="@+id/play2"
+                    android:layout_width="40dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="60dp"
+                    android:src="@drawable/play1"
+                    />
+                <ImageButton
+                    android:id="@+id/pause2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/pause2"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginLeft="70dp"
+                    />
+            </RelativeLayout>
+
+            <!--<Button-->
+                <!--android:id="@+id/play1"-->
+                <!--android:layout_width="300dp"-->
+                <!--android:layout_height="100dp"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:background="#BEF44336"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:text="防狼声爆"-->
+                <!--android:textColor="#FFFFFF">-->
+
+
+            <!--</Button>-->
+
+            <!--<Button-->
+                <!--android:id="@+id/play2"-->
+                <!--android:layout_width="300dp"-->
+                <!--android:layout_height="100dp"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:background="#B29C27B0"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:text="威胁声"-->
+                <!--android:textColor="#FFFFFF">-->
+                <!--/>-->
+            <!--</Button>-->
+
+            <Button
+                android:id="@+id/get_site"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:background="#B98BC34A"
+                android:layout_gravity="center_horizontal"
+                android:text="获取当前位置"
+                android:textColor="#FFFFFF">
+                />
+            </Button>
+
+            <Button
+                android:id="@+id/update_site"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:background="#9EFF9800"
+                android:layout_gravity="center_horizontal"
+                android:text="更新当前位置"
+                android:textColor="#FFFFFF">
+                     />
+            </Button>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>
