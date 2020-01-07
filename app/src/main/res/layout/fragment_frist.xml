@@ -55,91 +55,29 @@
             android:background="#FFFFFF"
             android:layout_marginTop="78dp">
 
-            <RelativeLayout
+            <Button
+                android:id="@+id/btn_fanglang"
                 android:layout_width="300dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="20dp"
-                android:background="#BEF44336"
-                android:layout_gravity="center_horizontal">
+                android:background="#2196F3"
+                android:layout_gravity="center_horizontal"
+                android:text="防狼声爆"
+                android:textColor="#FFFFFF">
+                />
+            </Button>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="防狼声爆"
-                    android:gravity="center"
-                    android:textColor="#FFFFFF" />
-                <ImageButton
-                    android:id="@+id/play1"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="60dp"
-                    android:src="@drawable/play1"
-                    />
-
-                <ImageButton
-                    android:id="@+id/pause1"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="70dp"
-                    android:layout_marginTop="60dp"
-                    android:src="@drawable/pause2" />
-            </RelativeLayout>
-
-            <RelativeLayout
+            <Button
+                android:id="@+id/btn_weixie"
                 android:layout_width="300dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="20dp"
                 android:background="#B09C27B0"
-                android:layout_gravity="center_horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="威胁声"
-                    android:gravity="center"
-                    android:textColor="#FFFFFF" />
-
-                <ImageButton
-                    android:id="@+id/play2"
-                    android:layout_width="40dp"
-                    android:layout_height="60dp"
-                    android:layout_marginTop="60dp"
-                    android:src="@drawable/play1"
-                    />
-                <ImageButton
-                    android:id="@+id/pause2"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/pause2"
-                    android:layout_marginTop="60dp"
-                    android:layout_marginLeft="70dp"
-                    />
-            </RelativeLayout>
-
-            <!--<Button-->
-                <!--android:id="@+id/play1"-->
-                <!--android:layout_width="300dp"-->
-                <!--android:layout_height="100dp"-->
-                <!--android:layout_marginTop="20dp"-->
-                <!--android:background="#BEF44336"-->
-                <!--android:layout_gravity="center_horizontal"-->
-                <!--android:text="防狼声爆"-->
-                <!--android:textColor="#FFFFFF">-->
-
-
-            <!--</Button>-->
-
-            <!--<Button-->
-                <!--android:id="@+id/play2"-->
-                <!--android:layout_width="300dp"-->
-                <!--android:layout_height="100dp"-->
-                <!--android:layout_marginTop="20dp"-->
-                <!--android:background="#B29C27B0"-->
-                <!--android:layout_gravity="center_horizontal"-->
-                <!--android:text="威胁声"-->
-                <!--android:textColor="#FFFFFF">-->
-                <!--/>-->
-            <!--</Button>-->
+                android:layout_gravity="center_horizontal"
+                android:text="威胁声"
+                android:textColor="#FFFFFF">
+                />
+            </Button>
 
             <Button
                 android:id="@+id/get_site"
@@ -164,6 +102,8 @@
                 android:textColor="#FFFFFF">
                      />
             </Button>
+
+
 
         </LinearLayout>
     </RelativeLayout>

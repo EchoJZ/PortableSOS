@@ -54,7 +54,7 @@
             android:background="#f6f7f9"
             android:layout_marginTop="78dp">
             <Button
-                android:id="@+id/alarm_button"
+                android:id="@+id/alarm_btn_dangerous"
                 android:layout_width="340dp"
                 android:layout_height="340dp"
                 android:layout_gravity="center_horizontal"
@@ -63,7 +63,8 @@
                 android:background="@layout/shape1"
                 android:textSize="70dp"
                 android:textColor="#FFFFFF"
-                android:text="一键报警"/>
+                android:text="一键报警"
+                android:onClick="click"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -73,6 +74,18 @@
                 android:text="点击一键报警按钮，我们帮您报警，同时将获取您的地理位置发送至紧急联系人。"
                 android:textColor="#000"
                 android:textSize="18dp"/>
+
+            <Button
+                android:id="@+id/alarm_btn_safe"
+                android:layout_width="250dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@layout/shape2"
+                android:textSize="30dp"
+                android:textColor="#FFFFFF"
+                android:text="我已安全"
+                android:onClick="click"/>
         </LinearLayout>
 
 

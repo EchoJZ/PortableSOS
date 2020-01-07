@@ -1,4 +1,4 @@
-package com.example.dontscare.thirdfragmentactivity;
+package com.example.dontscare.ui.person;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,12 +15,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.dontscare.CommonParameter;
+import com.example.dontscare.data.CommonParameter;
 import com.example.dontscare.R;
-import com.example.dontscare.begin.begin_welcome;
+import com.example.dontscare.begin.WelcomeActivity;
 import com.gyf.immersionbar.ImmersionBar;
 
-public class home_setting extends AppCompatActivity {
+public class SettingActivity extends AppCompatActivity {
     TextView tv1;
 
     @Override
@@ -40,11 +40,11 @@ public class home_setting extends AppCompatActivity {
                 finish();
             }
         });
-        //点击事件
+
+        //退出app
         tv1=(TextView) findViewById(R.id.home_setting_exit) ;
         String text1=" 退出掌心SOS";
         SpannableString ss1=new SpannableString(text1);
-        //点击事件1
         ss1.setSpan(new ClickableSpan() {
             @Override
             public void onClick(View widget) {
@@ -70,7 +70,9 @@ public class home_setting extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 CommonParameter.clearAllData();
-                Intent intent=new Intent(home_setting.this,begin_welcome.class);
+                Intent intent=new Intent(SettingActivity.this, WelcomeActivity.class);
+//                设置当前栈中所有的活动都退出
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
             }

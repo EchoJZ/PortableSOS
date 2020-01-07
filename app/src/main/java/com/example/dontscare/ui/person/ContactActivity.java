@@ -1,4 +1,4 @@
-package com.example.dontscare.thirdfragmentactivity;
+package com.example.dontscare.ui.person;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -16,16 +15,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.example.dontscare.CommonParameter;
-import com.example.dontscare.ContactAdapter;
-import com.example.dontscare.MainActivity;
+import com.example.dontscare.data.CommonParameter;
+import com.example.dontscare.adapter.ContactAdapter;
 import com.example.dontscare.R;
-import com.example.dontscare.UserContact;
-import com.example.dontscare.begin.begin_login;
-import com.example.dontscare.begin.begin_welcome;
+import com.example.dontscare.bean.ContactBean;
 import com.gyf.immersionbar.ImmersionBar;
 
 import org.json.JSONException;
@@ -43,8 +38,8 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class home_contact extends AppCompatActivity {
-    private List<UserContact> userList=new ArrayList<>();
+public class ContactActivity extends AppCompatActivity {
+    private List<ContactBean> userList=new ArrayList<>();
     Button add;
     RecyclerView recyclerView;
     private static final int CHANGE_TEXT=101;
@@ -97,9 +92,9 @@ public class home_contact extends AppCompatActivity {
     **/
     private void initContactUser(){
         int size=CommonParameter.list.size();
-        Log.d("home_contact", String.valueOf(size));
+        Log.d("ContactActivity", String.valueOf(size));
         for(int i=0;i<size;i++){
-            UserContact user1=CommonParameter.list.get(i);
+            ContactBean user1=CommonParameter.list.get(i);
             userList.add(user1);
         }
     }
@@ -149,7 +144,7 @@ public class home_contact extends AppCompatActivity {
             switch (msg.what){
                 case CHANGE_TEXT:
                     //在这里可以进行UI操作
-                    Log.d("home_contact","执行了Handler");
+                    Log.d("ContactActivity","执行了Handler");
                     CommonParameter.list.clear();
 
                     break;

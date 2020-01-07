@@ -1,4 +1,4 @@
-package com.example.dontscare;
+package com.example.dontscare.base;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,27 +8,27 @@ import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import com.example.dontscare.data.CommonParameter;
 import com.example.dontscare.R;
-import com.example.dontscare.begin.begin_login;
-import com.example.dontscare.begin.begin_register;
-import com.example.dontscare.thirdfragmentactivity.*;
-
+import com.example.dontscare.bean.ContactBean;
+import com.example.dontscare.ui.person.AboutActivity;
+import com.example.dontscare.ui.person.ContactActivity;
+import com.example.dontscare.ui.person.DetailsActivity;
+import com.example.dontscare.ui.person.HelpActivity;
+import com.example.dontscare.ui.person.SettingActivity;
+import com.example.dontscare.ui.person.SiteActivity;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.IOException;
-
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
@@ -41,16 +41,14 @@ import okhttp3.Response;
 public class ThirdFragment extends Fragment {
     TextView user_name;
     TextView user_val;
+    View view;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_third, container,false);
-//        user_name=(TextView) view.findViewById(R.id.user_name);
-//        user_val=(TextView) view.findViewById(R.id.user_val);
-//        user_name.setText(CommonParameter.user_name);
-//        user_val.setText(CommonParameter.phone);
+        view = inflater.inflate(R.layout.fragment_third, container,false);
+        init();
 
         //设置home页面的所有点击事件
         TextView tv1=(TextView) view.findViewById(R.id.home_details);
@@ -70,7 +68,7 @@ public class ThirdFragment extends Fragment {
         SpannableString ss4=new SpannableString(text4);
         SpannableString ss5=new SpannableString(text5);
 
-        //点击事件1
+        //点击获取用户资料
         ss1.setSpan(new ClickableSpan() {
             @Override
             public void onClick(View widget) {
@@ -84,7 +82,7 @@ public class ThirdFragment extends Fragment {
         tv1.setText(ss1);
         tv1.setMovementMethod(LinkMovementMethod.getInstance());
 
-        //点击事件2
+        //点击紧急联系人
         ss2.setSpan(new ClickableSpan() {
             @Override
             public void onClick(View widget) {
@@ -98,11 +96,11 @@ public class ThirdFragment extends Fragment {
         tv2.setText(ss2);
         tv2.setMovementMethod(LinkMovementMethod.getInstance());
 
-        //点击事件3
+        //点击当前位置
         ss3.setSpan(new ClickableSpan() {
             @Override
             public void onClick(View widget) {
-                Intent i=new Intent(getContext(),home_site.class);
+                Intent i=new Intent(getContext(), SiteActivity.class);
                 startActivity(i);
             }
             @Override
@@ -112,11 +110,12 @@ public class ThirdFragment extends Fragment {
         }, 0, text3.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
         tv3.setText(ss3);
         tv3.setMovementMethod(LinkMovementMethod.getInstance());
-        //点击事件4
+
+        //点击帮助
         ss4.setSpan(new ClickableSpan() {
             @Override
             public void onClick(View widget) {
-                Intent i=new Intent(getContext(),home_help.class);
+                Intent i=new Intent(getContext(), HelpActivity.class);
                 startActivity(i);
             }
             @Override
@@ -126,11 +125,12 @@ public class ThirdFragment extends Fragment {
         }, 0, text4.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
         tv4.setText(ss4);
         tv4.setMovementMethod(LinkMovementMethod.getInstance());
-        //点击事件5
+
+        //点击关于我们
         ss5.setSpan(new ClickableSpan() {
             @Override
             public void onClick(View widget) {
-                Intent i=new Intent(getContext(),home_about.class);
+                Intent i=new Intent(getContext(), AboutActivity.class);
                 startActivity(i);
             }
             @Override
@@ -141,82 +141,39 @@ public class ThirdFragment extends Fragment {
         tv5.setText(ss5);
         tv5.setMovementMethod(LinkMovementMethod.getInstance());
 
-        //home_setting
+        //点击右上角设置
         img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),home_setting.class);
+                Intent intent = new Intent(getActivity(), SettingActivity.class);
                 startActivity(intent);
             }
         });
+
+
         return view;
+    }
+
+    /**
+    ***初始化界面信息（姓名，邮箱）
+    **/
+    private void init(){
+        TextView userName=(TextView) view.findViewById(R.id.frgm_user_name);
+        TextView userEmail=(TextView) view.findViewById(R.id.frgm_user_email);
+        String sName = CommonParameter.user_name;
+        String sEmail = CommonParameter.email;
+        userName.setText(sName);
+        userEmail.setText(sEmail);
+
     }
 
 
     /**
-     * 点击用户资料
+     * 点击用户资料按钮
      */
     private void getUserDetails()  {
-        //发起请求
-        RequestBody formBody = new FormBody.Builder()
-                .build();
-        final Request request = new Request.Builder()
-                .url(CommonParameter.url_root+"/user/me")
-                .addHeader("receipt", CommonParameter.receipt)
-                .post(formBody)
-                .build();
-        //新建一个线程，用于得到服务器响应的参数
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    OkHttpClient client = new OkHttpClient();
-                    client.newCall(request).enqueue(new Callback() {
-                        public void onFailure(Call call, IOException e) {
-                            System.out.println(e.getMessage());
-                        }
-                        @Override
-                        public void onResponse(Call call, Response response) throws IOException {
-                            System.out.println("点击我的资料——返回结果："+"Response");
-                            int errCode=-1;
-                            String errMsg="";
-                            if (response.code() >= 200 && response.code() < 300) {
-                                String reponseData=response.body().string();
-                                System.out.println("点击我的资料——返回结果："+reponseData);
-                                JSONObject jsonObject= null;
-
-                                try {
-                                    jsonObject = new JSONObject(reponseData);
-                                    errCode = jsonObject.getInt("errCode");
-                                    errMsg=jsonObject.getString("errMsg");
-                                    if(errCode==0){
-                                        JSONObject jsonObject_info = jsonObject.optJSONObject("data");
-                                        CommonParameter.user_name=jsonObject_info.getString("user_name");
-                                        CommonParameter.phone=jsonObject_info.getString("email");
-                                        CommonParameter.user_intro=jsonObject_info.getString("user_intro");
-                                        CommonParameter.password=jsonObject_info.getString("password");
-                                        CommonParameter.location=jsonObject_info.getString("location");
-                                        CommonParameter.update_time=jsonObject_info.getString("update_time");
-                                        CommonParameter.security_status=jsonObject_info.getString("security_status");
-                                        Intent i=new Intent(getContext(), home_details.class);
-                                        startActivity(i);
-
-                                    }else if(errCode==1){
-                                        Looper.prepare();
-                                        Toast.makeText(getContext(),errMsg,Toast.LENGTH_SHORT).show();
-                                        Looper.loop();
-                                    }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-                    });
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
+        Intent i=new Intent(getContext(), DetailsActivity.class);
+        startActivity(i);
     }
 
 
@@ -260,6 +217,7 @@ public class ThirdFragment extends Fragment {
                                         JSONObject jsonObject_data = jsonObject.optJSONObject("data");
                                         JSONArray jsonArray=jsonObject_data.optJSONArray("list");
 //                                        System.out.println("点击我的紧急联系人——返回jsonArray："+jsonArray);
+                                        CommonParameter.clearUserList();
                                         for(int i=0;i<jsonArray.length();i++){
                                             JSONObject jsonObject1=jsonArray.getJSONObject(i);
                                             String name=jsonObject1.getString("user_name");
@@ -270,10 +228,10 @@ public class ThirdFragment extends Fragment {
                                             }else {
                                                 status="不安全";
                                             }
-                                            UserContact userContact=new UserContact(name,R.drawable.head7+i,location,status);
-                                            CommonParameter.list.add(userContact);
+                                            ContactBean contactBean =new ContactBean(name,R.drawable.head7+i,location,status);
+                                            CommonParameter.list.add(contactBean);
                                         }
-                                        Intent i=new Intent(getContext(),home_contact.class);
+                                        Intent i=new Intent(getContext(), ContactActivity.class);
                                         startActivity(i);
                                     }else if(errCode==1){
                                         Looper.prepare();

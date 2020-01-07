@@ -70,7 +70,7 @@
                 android:layout_marginBottom="20dp">
 
                 <TextView
-                    android:id="@+id/user_name"
+                    android:id="@+id/frgm_user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="40sp"
@@ -79,11 +79,11 @@
                     android:text="Bias"/>
 
                 <TextView
-                    android:id="@+id/user_val"
+                    android:id="@+id/frgm_user_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="17sp"
-                    android:layout_below="@id/user_name"
+                    android:layout_below="@id/frgm_user_name"
                     android:text="182****5882"
                     android:textColor="#95FFFFFF" />
 

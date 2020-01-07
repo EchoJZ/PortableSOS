@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".thirdfragmentactivity.home_about">
+    tools:context=".ui.person.AboutActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/home_about_toolbar"

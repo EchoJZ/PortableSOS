@@ -1,4 +1,4 @@
-package com.example.dontscare.thirdfragmentactivity;
+package com.example.dontscare.ui.person;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import com.example.dontscare.R;
 import com.gyf.immersionbar.ImmersionBar;
 
-public class home_help extends AppCompatActivity {
+public class HelpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

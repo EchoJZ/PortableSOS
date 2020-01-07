@@ -11,9 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.dontscare.CommonParameter;
+import com.example.dontscare.data.CommonParameter;
 import com.example.dontscare.R;
-import com.example.dontscare.thirdfragmentactivity.home_site;
 import com.gyf.immersionbar.ImmersionBar;
 
 import org.json.JSONException;
@@ -30,7 +29,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class begin_register extends AppCompatActivity implements View.OnClickListener{
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
 
     EditText phone;
     EditText password;
@@ -91,7 +90,7 @@ public class begin_register extends AppCompatActivity implements View.OnClickLis
 
                 break;
             case R.id.begin_register:
-                Log.d("begin_register","点击了注册按钮");
+                Log.d("RegisterActivity","点击了注册按钮");
                 string_name=name.getText().toString();
                 string_phone=phone.getText().toString();
                 string_password=password.getText().toString();
@@ -153,7 +152,7 @@ public class begin_register extends AppCompatActivity implements View.OnClickLis
                                         Looper.prepare();
                                         Toast.makeText(getBaseContext(),"注册成功！",Toast.LENGTH_SHORT).show();
                                         //跳转至登录界面
-                                        Intent i=new Intent(begin_register.this, begin_login.class);
+                                        Intent i=new Intent(RegisterActivity.this, LoginActivity.class);
                                         startActivity(i);
                                         finish();
                                         Looper.loop();
@@ -221,7 +220,7 @@ public class begin_register extends AppCompatActivity implements View.OnClickLis
 //            errCode = jsonObject.getString("errCode");
 //            ifLoginSuccess(errCode);
 //            String errMsg = jsonObject.getString("errMsg");
-//            Log.d("begin_login",errMsg);
+//            Log.d("LoginActivity",errMsg);
 //        }catch (Exception e){
 //            e.printStackTrace();
 //        }
@@ -234,7 +233,7 @@ public class begin_register extends AppCompatActivity implements View.OnClickLis
 //        if(code==0){
 //            Toast.makeText(getBaseContext(),"成功注册！",Toast.LENGTH_SHORT).show();
 //            //跳转至登录界面
-//            Intent i=new Intent(this, begin_login.class);
+//            Intent i=new Intent(this, LoginActivity.class);
 //            startActivity(i);
 //            finish();
 //        }

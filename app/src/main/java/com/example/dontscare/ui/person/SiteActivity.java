@@ -1,4 +1,4 @@
-package com.example.dontscare.thirdfragmentactivity;
+package com.example.dontscare.ui.person;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,11 +7,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.dontscare.CommonParameter;
+import com.example.dontscare.data.CommonParameter;
 import com.example.dontscare.R;
 import com.gyf.immersionbar.ImmersionBar;
 
-public class home_site extends AppCompatActivity {
+public class SiteActivity extends AppCompatActivity {
     TextView home_now_site;
 
     @Override

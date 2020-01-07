@@ -1,23 +1,49 @@
-package com.example.dontscare;
+package com.example.dontscare.app;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+
+import com.example.dontscare.base.FirstFragment;
+import com.example.dontscare.R;
+import com.example.dontscare.base.SecondFragment;
+import com.example.dontscare.base.ThirdFragment;
+import com.example.dontscare.data.CommonParameter;
+import com.example.dontscare.utils.Utils;
 import com.google.android.material.tabs.TabLayout;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import com.gyf.immersionbar.ImmersionBar;
-import com.next.easynavigation.view.EasyNavigationBar;
-import android.os.Bundle;
-import android.view.View;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    private Context context;
+    // 权限
+    private static final int REQUEST_PERMISSION = 1;
+    private static String[] PERMISSIONS = {
+            Manifest.permission.INTERNET,
+            Manifest.permission.ACCESS_NETWORK_STATE,
+            Manifest.permission.ACCESS_WIFI_STATE,
+            Manifest.permission.CALL_PHONE,
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_NETWORK_STATE,
+            Manifest.permission.CHANGE_WIFI_STATE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.SEND_SMS,
+    };
 
     //未选中的Tab图片
     private int[] unSelectTabRes = new int[]{R.drawable.firstfragment1
@@ -34,17 +60,68 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout.Tab tabAtthree;
     private TabLayout.Tab tabAtfour;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        getSupportActionBar().hide();//隐藏掉整个ActionBar
         setContentView(R.layout.activity_main);
+        context=this;
+        initPermission();
         initView();
         initData();
         initListener();
         ImmersionBar.with(this)
                 .barAlpha(0.3f)
                 .init();
+        Utils.getUserInfo(handler, CommonParameter.receipt);
+    }
+
+    Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg){
+            Log.d("MainActivity.this","初始化用户信息："+msg.obj);
+        }
+    };
+
+    /**
+    ***初始化权限
+    **/
+    private void initPermission(){
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            boolean isGranted = true;
+            for (String permission : PERMISSIONS) {
+                int result = ActivityCompat.checkSelfPermission(this, permission);
+                if (result != PackageManager.PERMISSION_GRANTED) {
+                    isGranted = false;
+                    break;
+                }
+            }
+            if (!isGranted) {
+                // 还没有的话，去申请权限
+                ActivityCompat.requestPermissions(this, PERMISSIONS, REQUEST_PERMISSION);
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_PERMISSION) {
+            boolean granted = true;
+            for (int result : grantResults) {
+                granted = result == PackageManager.PERMISSION_GRANTED;
+                if (!granted) {
+                    break;
+                }
+            }
+            if (!granted) {
+                // 没有赋予权限
+            } else {
+                // 已经赋予过权限了
+            }
+        }
     }
 
     private void initView() {

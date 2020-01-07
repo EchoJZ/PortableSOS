@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#EEECEC"
-    tools:context=".thirdfragmentactivity.home_contact">
+    tools:context=".ui.person.ContactActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/home_contact_toolbar"

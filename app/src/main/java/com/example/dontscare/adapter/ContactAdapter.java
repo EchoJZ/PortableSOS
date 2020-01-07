@@ -1,4 +1,4 @@
-package com.example.dontscare;
+package com.example.dontscare.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,12 +10,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dontscare.R;
+import com.example.dontscare.bean.ContactBean;
 
 import java.util.List;
 
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHolder> {
     //MyAdapter的成员变量mFruitList, 这里被我们用作数据的来源
-    private List<UserContact> mFruitList;
+    private List<ContactBean> mFruitList;
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -26,7 +27,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
     }
 
     //ContactAdapter的构造器
-    public ContactAdapter(List<UserContact> fruitList){
+    public ContactAdapter(List<ContactBean> fruitList){
         mFruitList=fruitList;
     }
 
@@ -34,7 +35,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //用于对RecyclerView的子项进行赋值，会在每个子项滚动到屏幕内的时候执行
-        UserContact fruit=mFruitList.get(position);
+        ContactBean fruit=mFruitList.get(position);
         holder.fruitName.setText(fruit.getName());
         holder.fruitImage.setImageResource(fruit.getImageId());
         holder.location.setText(fruit.getLocation());

@@ -14,13 +14,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.dontscare.R;
-import com.example.dontscare.thirdfragmentactivity.home_about;
+import com.example.dontscare.ui.person.AboutActivity;
 import com.gyf.immersionbar.ImmersionBar;
 
-/*
-解决 页面跳转后原页面的销毁问题
-*/
-public class begin_welcome extends AppCompatActivity {
+public class WelcomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +37,7 @@ public class begin_welcome extends AppCompatActivity {
         ss1.setSpan(new ClickableSpan() {
             @Override
             public void onClick(View widget) {
-                Intent i=new Intent(begin_welcome.this, begin_register.class);
+                Intent i=new Intent(WelcomeActivity.this, RegisterActivity.class);
                 startActivity(i);
             }
             @Override
@@ -54,7 +51,7 @@ public class begin_welcome extends AppCompatActivity {
         ss2.setSpan(new ClickableSpan() {
             @Override
             public void onClick(View widget) {
-                Intent i=new Intent(begin_welcome.this, home_about.class);
+                Intent i=new Intent(WelcomeActivity.this, AboutActivity.class);
                 startActivity(i);
             }
             @Override
@@ -68,7 +65,7 @@ public class begin_welcome extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(begin_welcome.this, begin_login.class);
+                Intent i=new Intent(WelcomeActivity.this, LoginActivity.class);
                 startActivity(i);
             }
         });

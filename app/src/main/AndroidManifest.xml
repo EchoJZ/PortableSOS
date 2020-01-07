@@ -5,14 +5,15 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--拨打电话-->
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!--发送短信-->
+    <uses-permission android:name="android.permission.SEND_SMS"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
     <!-- 这个权限用于进行网络定位-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
     <!-- 这个权限用于访问GPS定位-->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
-    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位-->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
     <!-- 获取运营商信息，用于支持提供运营商信息相关的接口-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
     <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
@@ -27,25 +28,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".begin.begin_welcome">
+        <activity android:name=".begin.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".begin.begin_register">
+        <activity android:name=".begin.RegisterActivity">
 
         </activity>
-        <activity android:name=".begin.begin_login" />
-        <activity android:name=".thirdfragmentactivity.home_setting" />
-        <activity android:name=".thirdfragmentactivity.home_about" />
-        <activity android:name=".thirdfragmentactivity.home_help" />
-        <activity android:name=".thirdfragmentactivity.home_site" />
+        <activity android:name=".begin.LoginActivity" />
+        <activity android:name=".ui.person.SettingActivity" />
+        <activity android:name=".ui.person.AboutActivity" />
+        <activity android:name=".ui.person.HelpActivity" />
+        <activity android:name=".ui.person.SiteActivity" />
         <activity
-            android:name=".thirdfragmentactivity.home_details"
+            android:name=".ui.person.DetailsActivity"
             android:label="我的资料" />
-        <activity android:name=".thirdfragmentactivity.home_contact" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.person.ContactActivity" />
+        <activity android:name=".app.MainActivity">
 
         </activity>
 
