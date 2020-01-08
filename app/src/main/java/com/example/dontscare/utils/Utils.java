@@ -215,10 +215,17 @@ public class Utils {
     ***更新用户安全状态
     **/
     public static void updateSecurityStatus(final Handler handler, String security_status)  {
+        if("0".equals(security_status)){
+            security_status = "1";
+        }else{
+            security_status = "0";
+        }
         //建立请求表单，添加上传服务器的参数
         RequestBody formBody = new FormBody.Builder()
                 .add("security_status",security_status)
                 .build();
+        Log.d("Utils.test",security_status);
+        Log.d("Utils.test",String.valueOf(formBody));
 
         //发起请求
         final Request request = new Request.Builder()
@@ -226,6 +233,8 @@ public class Utils {
                 .addHeader("receipt", CommonParameter.receipt)
                 .post(formBody)
                 .build();
+        Log.d("Utils.test",String.valueOf(request));
+
         //新建一个线程，用于得到服务器响应的参数
         new Thread(new Runnable() {
             @Override

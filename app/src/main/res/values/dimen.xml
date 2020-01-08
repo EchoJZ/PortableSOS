@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="font_actionbar">22sp</dimen>
+    <dimen name="font_home_select">16sp</dimen>
+
+    <dimen name="height_actionbar">28sp</dimen>
+
+    <dimen name="space_to_actionbar">68dp</dimen>
+    <dimen name="space_home_select">15dp</dimen>
+</resources>

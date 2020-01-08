@@ -1,6 +1,8 @@
 package com.example.dontscare.base;
 
 import android.Manifest;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -23,6 +25,8 @@ import com.example.dontscare.R;
 import com.example.dontscare.data.CommonParameter;
 import com.example.dontscare.data.MyData;
 import com.example.dontscare.utils.Utils;
+
+import static android.app.Activity.RESULT_OK;
 
 
 public class SecondFragment extends Fragment implements View.OnClickListener{
@@ -87,10 +91,13 @@ public class SecondFragment extends Fragment implements View.OnClickListener{
             if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.SEND_SMS}, 1);
             }
+            if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_PHONE_STATE}, 1);
+            }
             callToPhone();
             sendMessage();
             if("0".equals(CommonParameter.security_status)){
-                Log.d("SecondFragment","\"0\".equals(CommonParameter.security_status");
+                Log.d("SecondFragment","修改用户安全状态");
                 //            修改用户当前的安全状态，同时修改类CommonParameter的静态参数
                 Utils.updateSecurityStatus( handler , CommonParameter.security_status);
             }
@@ -109,21 +116,49 @@ public class SecondFragment extends Fragment implements View.OnClickListener{
     }
 
     private void sendMessage(){
-        try {
-            SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(MyData.messageNumber, null, "【来自"
+//        try {
+//            SmsManager smsManager = SmsManager.getDefault();
+//            smsManager.sendTextMessage(MyData.messageNumber, null, "【来自"
+//                    +CommonParameter.user_name+"的呼救！】我遇到了危险，请到 "
+//                    +CommonParameter.location+" 来救我！", null, null);
+//            Toast.makeText(getContext(), "求救短信发送中",
+//                    Toast.LENGTH_LONG).show();
+//
+//
+//
+//        } catch (Exception e) {
+//            Toast.makeText(getContext(),
+//                    "发送失败，请重新尝试.",
+//                    Toast.LENGTH_LONG).show();
+//            e.printStackTrace();
+//        }
+        Uri uri= Uri.parse("smsto:"+MyData.messageNumber);
+        Intent sms_intent = new Intent(Intent.ACTION_SENDTO, uri);
+        sms_intent.putExtra("sms_body", "【来自"
                     +CommonParameter.user_name+"的呼救！】我遇到了危险，请到 "
-                    +CommonParameter.location+" 来救我！", null, null);
-            Toast.makeText(getContext(), "求救短信发送中",
-                    Toast.LENGTH_LONG).show();
-        } catch (Exception e) {
-            Toast.makeText(getContext(),
-                    "发送失败，请重新尝试.",
-                    Toast.LENGTH_LONG).show();
-            e.printStackTrace();
-        }
-
+                    +CommonParameter.location+" 来救我！");
+        startActivity(sms_intent);
     }
+
+    /**
+    ***注册BroadcastReceiver接收状态
+    **/
+//    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+//        @Override
+//        public void onReceive(Context context, Intent intent) {
+//            if (intent.getAction().equals(ACTION_SEND_SMS)) {
+//                if (getResultCode() == RESULT_OK) {
+//                    Toast.makeText(SmsManageActivity.this, "Send SMS", Toast.LENGTH_LONG).show();
+//                }
+//            } else if (intent.getAction().equals(ACTION_DELIVERY_SMS)) {
+//                if (getResultCode() == RESULT_OK) {
+//                    Toast.makeText(SmsManageActivity.this, "Delivery SMS", Toast.LENGTH_LONG).show();
+//                }
+//            }
+//        }
+//
+//    };
+
 
     /**
      * @param requestCode 前面定义的反馈结果识别码

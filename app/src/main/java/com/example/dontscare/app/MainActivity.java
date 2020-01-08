@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
             Manifest.permission.CHANGE_WIFI_STATE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.SEND_SMS,
+            Manifest.permission.READ_PHONE_STATE,
     };
 
     //未选中的Tab图片

@@ -15,12 +15,12 @@
             android:id="@+id/h_back"
             android:layout_width="match_parent"
             android:layout_height="220dp"
-            android:src="@drawable/background4"
+            android:src="@drawable/background_v5"
             android:scaleType="fitXY"
             />
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="@dimen/height_actionbar"
             android:layout_marginTop="32dp"
             android:orientation="horizontal">
 
@@ -35,7 +35,7 @@
                 android:layout_weight="8"
                 android:gravity="center_horizontal"
                 android:text="急救"
-                android:textSize="25sp"
+                android:textSize="@dimen/font_actionbar"
                 android:textColor="#FFFFFF"/>
 
             <ImageView
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="#f6f7f9"
-            android:layout_marginTop="78dp">
+            android:layout_marginTop="@dimen/space_to_actionbar">
             <Button
                 android:id="@+id/alarm_btn_dangerous"
                 android:layout_width="340dp"
