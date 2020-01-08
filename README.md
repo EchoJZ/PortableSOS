@@ -1,12 +1,20 @@
-# PortableSOS(掌心SOS)
+# PortableSOS(掌心SOS)(仿Tim界面)
 
 ## Introduce
 
-一款用于保护女性人身安全的安卓app，项目基于Android开发，以及百度地图api。
+一款用于保护女性人身安全的安卓app，项目基于Android开发，SSM后端开发，以及百度地图api。
 
 ## Screenshots
 
-![欢迎](./screenshots/欢迎.png)
+<figure class="third">     
+  <img src="./screenshots/欢迎.png" alt="欢迎" style="zoom:30%;" /> 
+	<img src="./screenshots/注册.png" alt="注册" style="zoom:30%;" />
+  <img src="./screenshots/登录.png" alt="登录" style="zoom:30%;" />
+</figure>
+
+
+
+
 
 
 
