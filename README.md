@@ -5,17 +5,7 @@
 一款用于保护女性人身安全的安卓app，项目基于Android开发，SSM后端开发，以及百度地图api。
 
 ## Screenshots
-
-<figure class="third">     
-  <img src="./screenshots/欢迎.png" alt="欢迎" style="zoom:30%;" /> 
-	<img src="./screenshots/注册.png" alt="注册" style="zoom:30%;" />
-  <img src="./screenshots/登录.png" alt="登录" style="zoom:30%;" />
-</figure>
-
-
-
 <div align=center><img width="200" height="350" src="./screenshots/欢迎.png"/></div>
-
 
 
 
